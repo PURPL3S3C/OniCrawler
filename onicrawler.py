@@ -23,7 +23,7 @@ banner = (O + """
 ██║   ██║██╔██╗ ██║██║██║     ██████╔╝███████║██║ █╗ ██║██║     █████╗  ██████╔╝
 ██║   ██║██║╚██╗██║██║██║     ██╔══██╗██╔══██║██║███╗██║██║     ██╔══╝  ██╔══██╗
 ╚██████╔╝██║ ╚████║██║╚██████╗██║  ██║██║  ██║╚███╔███╔╝███████╗███████╗██║  ██║
- ╚═════╝ ╚═╝  ╚═══╝╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚══════╝╚══════╝╚═╝  ╚═╝   v1.0 """ + B + "Made " + C + "by: " + P + "PURPL3S3C" + W)
+ ╚═════╝ ╚═╝  ╚═══╝╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚══════╝╚══════╝╚═╝  ╚═╝ v1.2   """ + B + "Made " + C + "by: " + P + "PURPL3S3C" + W)
 print (banner)
 def ensure_url_scheme(url):
     """Asegura que la URL tenga un esquema válido (http o https)."""
@@ -54,13 +54,7 @@ def fetch_archived_urls(domain, filename):
         "fl": "original"
     }
     
-    # Iniciar spinner de carga
-    print(O + "Crawling in progress... Please wait." + W, end='', flush=True)
-    for _ in range(10):  # Simula el trabajo con un spinner de carga durante 10 iteraciones
-        for char in '|/-\\':  # Spinner que gira
-            sys.stdout.write(f'\r{char} Crawling in progress... Please wait.')
-            sys.stdout.flush()
-            time.sleep(0.1)
+    print(W + "Crawling in progress... Please wait." + W, end='', flush=True)
 
     # Realiza la solicitud HTTP
     response = requests.get(url, params=params)
@@ -68,12 +62,10 @@ def fetch_archived_urls(domain, filename):
     
     with open(filename, "w") as file:
         file.write(response.text)
-    
-    print(G + f"Domains saved in {B}{filename}{W}")
 
 def process_url():
     """Solicita la URL y la procesa."""
-    url = input(C + "URL to crawl: " + W)
+    url = input(C + "URL to crawl : " + W)
     url = ensure_url_scheme(url)
     
     if not is_url_active(url):
@@ -87,13 +79,14 @@ def process_url():
     
     print(O + f"CRAWLING!: {B}{url}{W}")
 
-    start_time = time.time()  # Inicia el contador de tiempo
+    start_time = time.time()  
 
     try:
         fetch_archived_urls(domain, filename)
-        elapsed_time = time.time() - start_time  # Calcula el tiempo transcurrido
-        print(G + f"Crawled domains saved in {B}{filename}{W}")
-        print(G + f"Time taken: {elapsed_time:.2f} seconds" + W)  # Muestra el tiempo transcurrido
+        elapsed_time = time.time() - start_time  
+        print(G + f"""
+Domains saved in {B}{filename}{G} succesfully!{W}""")
+        print(GR + f"Time: {elapsed_time:.2f} seconds" + W)  
     except requests.RequestException as e:
         print(R + f"Error Process Stopped: {e}{W}")
 
