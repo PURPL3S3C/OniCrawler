@@ -26,7 +26,7 @@
 #### Snapshot types
 - Blue: Snapshot aviable!
 - Red: Error while loading the snapshot
-- Orange: Not 
+- Orange: Wayback has not the snapshot stored
 
 ### Contribution, Credits & License
 Ways to contribute
