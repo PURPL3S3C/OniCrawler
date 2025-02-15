@@ -9,7 +9,7 @@
 <img src="https://i.ibb.co/205Wc5G7/image.png">
 
 ### This tool makes recon so easy to bug bounters. Dumps all the subdomains from a domain (including status 404) ask for a domain and a file name where will be all the crawled subdomains.
-##### - NOTE: This is the v1.0 of this project, so may have some issues. You can check the contribution part down this page.
+##### - NOTE: This is the v1.2 of this project, so may have some issues. You can check the contribution part down this page.
 
 ## Main Features
 - Python Based Tool
