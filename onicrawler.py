@@ -26,23 +26,23 @@ banner = (O + """
  ╚═════╝ ╚═╝  ╚═══╝╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚══════╝╚══════╝╚═╝  ╚═╝ v1.2   """ + B + "Made " + C + "by: " + P + "PURPL3S3C" + W)
 print (banner)
 def ensure_url_scheme(url):
-    """Asegura que la URL tenga un esquema válido (http o https)."""
+    """Verifies (http o https)."""
     parsed_url = urlparse(url)
     if not parsed_url.scheme:
         url = f"https://{url}"  
     return url
 
 def is_url_active(url):
-    """Verifica si la URL responde correctamente con un código de estado 200."""
+    """Verifies"""
     try:
         response = requests.get(url, timeout=5)
         if response.status_code == 200:
             return True
         else:
-            print(R + f"Error: La URL no respondió correctamente (código {response.status_code}){W}")
+            print(R + f"Error (código {response.status_code}){W}")
             return False
     except requests.RequestException as e:
-        print(R + f"Error al conectar con la URL: {e}{W}")
+        print(R + f"Error connecting to URL: {e}{W}")
         return False
 
 def fetch_archived_urls(domain, filename):
@@ -64,7 +64,6 @@ def fetch_archived_urls(domain, filename):
         file.write(response.text)
 
 def process_url():
-    """Solicita la URL y la procesa."""
     url = input(C + "URL to crawl : " + W)
     url = ensure_url_scheme(url)
     
